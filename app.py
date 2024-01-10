@@ -96,7 +96,12 @@ if st.sidebar.button('Clean text'):
         colum2_expend.write(clean)
 
 #Forms exemple
-nlp = spacy.load('en_core_web_lg')
+@st.cache(allow_output_mutation=True)
+def load_model(model_name)
+    nlp = spacy.load(model_name)
+    return nlp
+
+nlp = load_model('en_core_web_lg')
 
 def extract_entities(ent_types, text_ent):
     results = []
